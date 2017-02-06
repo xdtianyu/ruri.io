@@ -1,5 +1,5 @@
 # ruri.io
-https://ruri.io home page
+https://ruri.io homepage
 
 ## Usage
 
