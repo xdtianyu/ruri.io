@@ -108,7 +108,7 @@ IFS=$SAVEIFS
 
 IMG_TAG=$(cat "$TMP_HTML")
 
-cat << EOF
+cat << EOF | inliner -mi
 <head>
     <link type="text/css" rel="stylesheet" href="static/css/lightgallery.css" /> 
     <title>$TITLE</title>
@@ -116,7 +116,7 @@ cat << EOF
 
 <body>
     <script src="static/js/jquery-3.1.1.min.js"></script>
-    <script src="static/js/lightgallery.js"></script>
+    <script src="static/js/lightgallery.min.js"></script>
 
     <script src="static/js/jquery.mousewheel.min.js"></script>
 
