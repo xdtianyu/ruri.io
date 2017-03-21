@@ -1,8 +1,6 @@
 #!/bin/bash
 
-for file in $(find -name \*.jpg);do
+for file in $(find -name \*thumb.jpg);do
     echo guetzli -quality 90 "$file" "$file"
-    convert "$file" "$file.png"
-    guetzli -quality 90 "$file.png" "$file"
-    rm "$file.png"
+    guetzli -quality 90 "$file" "$file"
 done

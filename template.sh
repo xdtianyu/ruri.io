@@ -83,7 +83,7 @@ x2thumb(){
 
         thumb="${file%.*}_thumb.jpg"
         if [ ! -f "$thumb" ] ; then
-            convert -thumbnail 300x240 "$file" "$thumb"
+            convert -thumbnail 320x240 -quality 90 "$file" "$thumb"
         fi
         append_html "$file" "$thumb"
     done
@@ -128,6 +128,17 @@ $IMG_TAG
     </div>
 
     <script type="text/javascript">
+        var loaded = false;
+        var isReady = false;
+
+        function startGallery(msg) {
+            //alert(msg + ':' + loaded + ',' + isReady);
+            if (loaded && isReady) {
+                //\$("#first").click();
+                \$("img:first-child").click();
+            }
+        };
+
         \$(document).ready(function() {
             var \$lg = \$("#lightgallery");
             \$lg.lightGallery({
@@ -135,8 +146,14 @@ $IMG_TAG
                 progressBar: true,
                 closable: false
             });
-            \$("#first").click();
             //\$('.lg-close').remove();
+            isReady = true;
+            startGallery('ready');
+        });
+
+        \$(window).on("load", function() {
+            loaded = true;
+            startGallery('load');
         });
     </script>
 </body>  
