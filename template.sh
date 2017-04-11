@@ -128,17 +128,6 @@ $IMG_TAG
     </div>
 
     <script type="text/javascript">
-        var loaded = false;
-        var isReady = false;
-
-        function startGallery(msg) {
-            //alert(msg + ':' + loaded + ',' + isReady);
-            if (loaded && isReady) {
-                //\$("#first").click();
-                \$("img:first-child").click();
-            }
-        };
-
         \$(document).ready(function() {
             var \$lg = \$("#lightgallery");
             \$lg.lightGallery({
@@ -146,14 +135,10 @@ $IMG_TAG
                 progressBar: true,
                 closable: false
             });
+            //\$lg.data('lightGallery').build(1);
             //\$('.lg-close').remove();
-            isReady = true;
-            startGallery('ready');
-        });
-
-        \$(window).on("load", function() {
-            loaded = true;
-            startGallery('load');
+            \$("#first").click();
+            //\$("img:first-child").click();
         });
     </script>
 </body>  
